@@ -13,4 +13,4 @@ const corsOptions = {
   },
 };
 
-export default corsOptions;
+module.exports = corsOptions;
