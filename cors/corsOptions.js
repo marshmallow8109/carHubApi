@@ -1,19 +1,16 @@
-const whiteList = [
-  "https://augustrush.netlify.app.",
-  "http://augustrush.netlify.app.",
-];
+const express = require("express");
+const cors = require("cors");
 
-//cors options
+const whitelist = ["https://augustrush.netlify.app"];
+
 const corsOptions = {
   origin: function (origin, callback) {
-    if (whiteList.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
+    if (whitelist.includes(origin)) {
+      callback(null, true); // Allow the request
     } else {
-      callback(new Error("Not allowed Blocked!!!"));
+      callback(new Error("Not allowed by CORS")); // Block the request
     }
   },
-  optionSuccessStatus: 200,
-  preflightContinue: true,
 };
 
-module.exports = corsOptions;
+export default corsOptions;
