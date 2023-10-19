@@ -1,6 +1,4 @@
 const whiteList = [
-  "http://127.0.0.1:5173",
-  "https://127.0.0.1:5173",
   "https://augustrush.netlify.app.",
   "http://augustrush.netlify.app.",
 ];

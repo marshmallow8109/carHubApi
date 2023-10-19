@@ -16,6 +16,7 @@ const registerRoute = require("./routes/register");
 const updateRoute = require("./routes/update");
 const jobRoutes = require("./routes/jobs");
 const notFound = require("./middleware/not-found");
+const { StatusCodes } = require("http-status-codes");
 
 //static middlewates
 app.use(express.static(path.join(__dirname, "public")));
@@ -42,6 +43,11 @@ app.use("/", jobRoutes);
 
 //mailing route
 app.post("/portfolio/mail", (req, res) => {
+  if (req.method === "OPTIONS") {
+    res.status(StatusCodes.OK).json({ msg: "Ok" });
+    return;
+  }
+
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
