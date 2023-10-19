@@ -40,7 +40,7 @@ app.use("/", updateRoute);
 app.use("/", jobRoutes);
 
 //mailing route
-app.post("portfolio/mail", (req, res) => {
+app.post("/portfolio/mail", (req, res) => {
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
