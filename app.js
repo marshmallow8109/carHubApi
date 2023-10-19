@@ -9,6 +9,7 @@ const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 const connectDB = require("./connectDB/index");
 const corsOptions = require("./cors/corsOptions");
+const nodemailer = require("nodemailer");
 
 //import routes
 const loginRoute = require("./routes/login");
